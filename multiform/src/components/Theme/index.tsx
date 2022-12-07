@@ -10,7 +10,7 @@ type Props = {
 
 export const Theme = ({ children }: Props) => {
     const { state } = useForm();
-    
+
     return (
         <C.Container>
             <C.Area>
@@ -24,6 +24,7 @@ export const Theme = ({ children }: Props) => {
                             description="Se identifique"
                             icon="profile"
                             path="/"
+                            active={state.currentStep === 1 }
                         />
 
                         <SidebarItem
@@ -31,6 +32,7 @@ export const Theme = ({ children }: Props) => {
                             description="Seu nível"
                             icon="book"
                             path="/step2"
+                            active={state.currentStep === 2 }
                         />
 
                         <SidebarItem
@@ -38,6 +40,7 @@ export const Theme = ({ children }: Props) => {
                             description="Como te achar"
                             icon="mail"
                             path="/step3"
+                            active={state.currentStep === 3 }
                         />
 
                     </C.Sidebar>
