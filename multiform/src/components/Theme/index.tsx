@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import * as C from './styles';
-import { Header } from '../Theme/Header';
+import { Header } from '../Header';
 
 type Props = {
     children: ReactNode;

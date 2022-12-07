@@ -3,6 +3,7 @@ import * as C from './styles';
 import { useForm, FormActions } from '../../contexts/FormContext';
 import { Theme } from '../../components/Theme';
 import { ChangeEvent, useEffect } from 'react';
+import { SelectOption } from '../../components/SelectOption';
 
 export const FormStep2 = () => {
     const navigate = useNavigate();
@@ -18,13 +19,19 @@ export const FormStep2 = () => {
     const handleNextStep = () => {
         if (state.name !== '') {
             navigate('/step3');
-        }else {
+        } else {
             alert("Preencha os dados");
         }
-
     }
 
- 
+    const setLevel = (level: number) => {
+        dispatch({
+            type: FormActions.setLevel,
+            payload: level
+        });
+    }
+
+
 
     return (
         <Theme>
@@ -35,7 +42,23 @@ export const FormStep2 = () => {
 
                 <hr />
 
-              
+                <SelectOption
+                    title="Sou iniciante"
+                    description="Comecei a programar há menos de 2 ano"
+                    icon="🥳"
+                    selected={state.level === 0}
+                    onClick={() => setLevel(0)}
+                />
+
+                <SelectOption
+                    title="Sou programador"
+                    description="Já programa há 2 anos ou mais"
+                    icon="😎"
+                    selected={state.level === 1}
+                    onClick={() => setLevel(1)}
+                />
+
+
 
                 <button onClick={handleNextStep}>Próximo</button>
             </C.Container>
