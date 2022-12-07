@@ -25,7 +25,7 @@ type FormProviderProps = {
 
 const initialData: State = {
     currentStep: 0,
-    name: '',
+    name: 'Sofia',
     level: 0,
     email: '',
     github: ''
